@@ -1,4 +1,4 @@
-import bst
+import BSTImpl
 
 class Pilha(object):
     def __init__(self, size):
@@ -38,7 +38,7 @@ class Pilha(object):
 
         return retorno
 
-bst = bst.BSTImpl()
+bst = BSTImpl.BSTImpl()
 bst.insert(5)
 bst.insert(7)
 bst.insert(3)

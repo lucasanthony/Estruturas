@@ -1,12 +1,52 @@
-# bst.py
+# BSTImpl.py
 
-import bstNode
+class BSTNode(object):
+    def __init__(self, data, left, right, parent):
+        self._dada = data
+        self._left = left
+        self._right = right
+        self._parent = parent
 
-NIL = bstNode.BSTNode()
+    def __init__(self):
+        self._data = None
+        self._left = None
+        self._right = None
+        self._parent = None
+
+    def isEmpty(self):
+        return self._data == None
+
+    def isLeaf(self):
+        return self._data != None and self._left.isEmpty() and self._right.isEmpty()
+
+    def getData(self):
+        return self._data
+
+    def setData(self, date):
+        self._data = date
+
+    def getLeft(self):
+        return self._left
+
+    def setLeft(self, left):
+        self._left = left
+
+    def getRight(self):
+        return self._right
+
+    def setRight(self, right):
+        self._right = right
+
+    def getParent(self):
+        return self._parent
+
+    def setParent(self, parent):
+        self._parent = parent
+
 
 class BSTImpl(object):
     def __init__(self):
-        self._root = NIL
+        self._root = BSTNode()
 
     def getRoot(self):
         return self._root
@@ -21,11 +61,11 @@ class BSTImpl(object):
     def insertAux(self, node, element):
         if node.isEmpty():
             node.setData(element)
-            node.setLeft(NIL)
-            node.setRight(NIL)
+            node.setLeft(BSTNode())
+            node.setRight(BSTNode())
 
             if node.getParent() == None:
-                node.setParent(NIL)
+                node.setParent(BSTNode())
 
             node.getLeft().setParent(node)
             node.getRight().setParent(node)
